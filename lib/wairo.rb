@@ -1,5 +1,7 @@
 # encoding: UTF-8
+
 module Wairo
+  CURRENT_DIR = File.expand_path(File.dirname(__FILE__))
   require_relative 'wairo/scraper'
   require_relative 'wairo/color'
   class Wairo
@@ -34,7 +36,7 @@ module Wairo
         tmp
       end
 
-      def load_build_file(io=CURRENT_DIR+'/wairo.yml')
+      def load_build_file(io=CURRENT_DIR+'/wairo/wairo.yml')
         YAML.load_file(io)
       rescue
         nil

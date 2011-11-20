@@ -5,7 +5,6 @@ require "psych"
 require "yaml"
 
 module Wairo
-  CURRENT_DIR = File.expand_path(File.dirname(__FILE__))
   class Scraper
     URL = "http://www.colordic.org/w/?line=row"
 
@@ -15,7 +14,7 @@ module Wairo
         parse @html
       end
 
-      def to_file(io=CURRENT_DIR+'/wairo.yml')
+      def to_file(io=CURRENT_DIR+'/wairo/wairo.yml')
         raise IOError, "File exist:#{io}" if File.exist?(io)
         File.open(io, 'w') { |f| YAML.dump build, f }
       end
