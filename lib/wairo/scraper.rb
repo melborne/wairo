@@ -7,7 +7,8 @@ require "yaml"
 module Wairo
   CURRENT_DIR = File.expand_path(File.dirname(__FILE__))
   class Scraper
-    URL = "http://www.colordic.org/w/"
+    URL = "http://www.colordic.org/w/?line=row"
+
     class << self
       def build
         @html ||= get(URL)
