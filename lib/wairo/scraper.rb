@@ -1,8 +1,8 @@
 # encoding: UTF-8
 require "nokogiri"
 require "open-uri"
-require "psych"
-require "yaml"
+autoload :YAML, "psych"
+autoload :YAML, "yaml"
 
 module Wairo
   CURRENT_DIR = File.expand_path(File.dirname(__FILE__))
