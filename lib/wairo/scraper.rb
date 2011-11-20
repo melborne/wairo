@@ -1,8 +1,8 @@
 # encoding: UTF-8
 require "nokogiri"
 require "open-uri"
-autoload :YAML, "psych"
-autoload :YAML, "yaml"
+require "psych"
+require "yaml"
 
 module Wairo
   CURRENT_DIR = File.expand_path(File.dirname(__FILE__))
@@ -34,7 +34,7 @@ module Wairo
         q = Hash.new{ |h,k| h[k]=[] }
         table = html.css("table.colortable")
         table.css("td>a").each do |tda|
-          name, hex = tda.attr('title').split(/\s+/)
+          name, hex = tda.attr('title').strip.split(/\s+/)
           url = tda.attr('href')
           subname = tda.css('span').text
           rgb, notes = nil, nil
